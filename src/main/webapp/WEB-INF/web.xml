@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <servlet-class>com.ejt.DispatcherServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BeerAdvice</servlet-name>
+        <servlet-class>com.ejt.controller.BeerAdvice</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <url-pattern>/s</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BeerAdvice</servlet-name>
+        <url-pattern>/serv1</url-pattern>
+    </servlet-mapping>
+</web-app>
