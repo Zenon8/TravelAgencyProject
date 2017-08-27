@@ -4,21 +4,28 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+    <display-name>Travel Agency</display-name>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value></param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
     <servlet>
         <servlet-name>DispatcherServlet</servlet-name>
-        <servlet-class>com.ejt.DispatcherServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>BeerAdvice</servlet-name>
-        <servlet-class>com.ejt.controller.BeerAdvice</servlet-class>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>DispatcherServlet</servlet-name>
-        <url-pattern>/s</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BeerAdvice</servlet-name>
-        <url-pattern>/serv1</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>
