@@ -14,7 +14,7 @@
 
 <h1 align="center">Beer Selection Page</h1>
 <form method="post" action="">
-<c:url value="serv1"/>>
+<c:url value="/serv1"/>
     <div>Select beer characteristics</div>
     <label>
         Color:
