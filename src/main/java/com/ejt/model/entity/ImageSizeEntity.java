@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "image_size", schema = "travel_agency", catalog = "")
+@Table(name = "image_size", schema = "travel_agency")
 public class ImageSizeEntity {
     private int id;
     private String name;

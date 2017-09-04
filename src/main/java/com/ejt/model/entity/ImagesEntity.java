@@ -3,7 +3,7 @@ package com.ejt.model.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "images", schema = "travel_agency", catalog = "")
+@Table(name = "images", schema = "travel_agency")
 public class ImagesEntity {
     private int id;
     private int sizeId;

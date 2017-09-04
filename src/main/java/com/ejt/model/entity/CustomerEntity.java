@@ -1,16 +1,16 @@
 package com.ejt.model.entity;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.Set;
 
 @Entity
-@Table(name = "customer", schema = "travel_agency", catalog = "")
+@Table(name = "customer", schema = "travel_agency")
 public class CustomerEntity {
     private int id;
     private String name;
     private String phone;
     private byte foreignPassport;
-    private Collection<OrderEntity> ordersById;
+    private Set<OrderEntity> ordersById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -77,11 +77,11 @@ public class CustomerEntity {
     }
 
     @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<OrderEntity> getOrdersById() {
+    public Set<OrderEntity> getOrdersById() {
         return ordersById;
     }
 
-    public void setOrdersById(Collection<OrderEntity> ordersById) {
+    public void setOrdersById(Set<OrderEntity> ordersById) {
         this.ordersById = ordersById;
     }
 }
