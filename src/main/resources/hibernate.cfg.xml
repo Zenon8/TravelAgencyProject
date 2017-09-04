@@ -4,10 +4,14 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url"/>
-    <property name="connection.driver_class"/>
-    <property name="connection.username"/>
-    <property name="connection.password"/>
+    <property name="connection.url">jdbc:mysql://localhost:3306/travel_agency</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <mapping class="com.ejt.model.entity.CountryEntity"/>
+    <mapping class="com.ejt.model.entity.CustomerEntity"/>
+    <mapping class="com.ejt.model.entity.OrderEntity"/>
+    <mapping class="com.ejt.model.entity.ImageSizeEntity"/>
+    <mapping class="com.ejt.model.entity.ImagesEntity"/>
+    <mapping class="com.ejt.model.entity.TourEntity"/>
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
   </session-factory>
