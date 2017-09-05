@@ -64,17 +64,11 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <properties>
-                <wildfly-hostname>localhost</wildfly-hostname>
-                <wildfly-port>9090</wildfly-port>
-                <wildfly-username>Zenon</wildfly-username>
-                <wildfly-password>Logitech</wildfly-password>
-                <wildfly-name>wildfly-localhost</wildfly-name>
-            </properties>
         </profile>
     </profiles>
 
     <build>
+        <finalName>TravelAgency</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
