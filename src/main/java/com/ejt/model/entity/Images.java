@@ -4,14 +4,14 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "images", schema = "travel_agency")
-public class ImagesEntity {
+public class Images {
     private int id;
     private int sizeId;
     private Integer tourId;
     private String name;
     private String url;
-    private ImageSizeEntity imageSizeBySizeId;
-    private TourEntity tourByTourId;
+    private ImageSize imageSizeBySizeId;
+    private Tour tourByTourId;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -68,7 +68,7 @@ public class ImagesEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ImagesEntity that = (ImagesEntity) o;
+        Images that = (Images) o;
 
         if (id != that.id) return false;
         if (sizeId != that.sizeId) return false;
@@ -91,21 +91,21 @@ public class ImagesEntity {
 
     @ManyToOne
     @JoinColumn(name = "size_id", referencedColumnName = "id", nullable = false)
-    public ImageSizeEntity getImageSizeBySizeId() {
+    public ImageSize getImageSizeBySizeId() {
         return imageSizeBySizeId;
     }
 
-    public void setImageSizeBySizeId(ImageSizeEntity imageSizeBySizeId) {
+    public void setImageSizeBySizeId(ImageSize imageSizeBySizeId) {
         this.imageSizeBySizeId = imageSizeBySizeId;
     }
 
     @ManyToOne
     @JoinColumn(name = "tour_id", referencedColumnName = "id")
-    public TourEntity getTourByTourId() {
+    public Tour getTourByTourId() {
         return tourByTourId;
     }
 
-    public void setTourByTourId(TourEntity tourByTourId) {
+    public void setTourByTourId(Tour tourByTourId) {
         this.tourByTourId = tourByTourId;
     }
 }

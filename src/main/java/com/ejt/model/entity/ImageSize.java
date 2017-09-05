@@ -5,12 +5,12 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "image_size", schema = "travel_agency")
-public class ImageSizeEntity {
+public class ImageSize {
     private int id;
     private String name;
     private int width;
     private int height;
-    private Collection<ImagesEntity> imagesById;
+    private Collection<Images> imagesById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -57,7 +57,7 @@ public class ImageSizeEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ImageSizeEntity that = (ImageSizeEntity) o;
+        ImageSize that = (ImageSize) o;
 
         if (id != that.id) return false;
         if (width != that.width) return false;
@@ -77,11 +77,11 @@ public class ImageSizeEntity {
     }
 
     @OneToMany(mappedBy = "imageSizeBySizeId")
-    public Collection<ImagesEntity> getImagesById() {
+    public Collection<Images> getImagesById() {
         return imagesById;
     }
 
-    public void setImagesById(Collection<ImagesEntity> imagesById) {
+    public void setImagesById(Collection<Images> imagesById) {
         this.imagesById = imagesById;
     }
 }

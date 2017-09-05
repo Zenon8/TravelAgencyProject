@@ -5,10 +5,10 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "country", schema = "travel_agency")
-public class CountryEntity {
+public class Country {
     private int id;
     private String name;
-    private Collection<TourEntity> toursById;
+    private Collection<Tour> toursById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -35,7 +35,7 @@ public class CountryEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CountryEntity that = (CountryEntity) o;
+        Country that = (Country) o;
 
         if (id != that.id) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
@@ -51,11 +51,11 @@ public class CountryEntity {
     }
 
     @OneToMany(mappedBy = "countryByCountryId")
-    public Collection<TourEntity> getToursById() {
+    public Collection<Tour> getToursById() {
         return toursById;
     }
 
-    public void setToursById(Collection<TourEntity> toursById) {
+    public void setToursById(Collection<Tour> toursById) {
         this.toursById = toursById;
     }
 }

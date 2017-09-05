@@ -5,12 +5,12 @@ import java.util.Set;
 
 @Entity
 @Table(name = "customer", schema = "travel_agency")
-public class CustomerEntity {
+public class Customer {
     private int id;
     private String name;
     private String phone;
     private byte foreignPassport;
-    private Set<OrderEntity> ordersById;
+    private Set<Order> ordersById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -57,7 +57,7 @@ public class CustomerEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CustomerEntity that = (CustomerEntity) o;
+        Customer that = (Customer) o;
 
         if (id != that.id) return false;
         if (foreignPassport != that.foreignPassport) return false;
@@ -77,11 +77,11 @@ public class CustomerEntity {
     }
 
     @OneToMany(mappedBy = "customerByCustomerId")
-    public Set<OrderEntity> getOrdersById() {
+    public Set<Order> getOrdersById() {
         return ordersById;
     }
 
-    public void setOrdersById(Set<OrderEntity> ordersById) {
+    public void setOrdersById(Set<Order> ordersById) {
         this.ordersById = ordersById;
     }
 }

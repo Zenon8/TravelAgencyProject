@@ -5,7 +5,7 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "tour", schema = "travel_agency")
-public class TourEntity {
+public class Tour {
     private int id;
     private int countryId;
     private String name;
@@ -13,9 +13,9 @@ public class TourEntity {
     private int price;
     private int countMin;
     private int countMax;
-    private Collection<OrderEntity> ordersById;
-    private Collection<ImagesEntity> imagesById;
-    private CountryEntity countryByCountryId;
+    private Collection<Order> ordersById;
+    private Collection<Images> imagesById;
+    private Country countryByCountryId;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -92,7 +92,7 @@ public class TourEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        TourEntity that = (TourEntity) o;
+        Tour that = (Tour) o;
 
         if (id != that.id) return false;
         if (countryId != that.countryId) return false;
@@ -118,30 +118,30 @@ public class TourEntity {
     }
 
     @OneToMany(mappedBy = "tourByTourId")
-    public Collection<OrderEntity> getOrdersById() {
+    public Collection<Order> getOrdersById() {
         return ordersById;
     }
 
-    public void setOrdersById(Collection<OrderEntity> ordersById) {
+    public void setOrdersById(Collection<Order> ordersById) {
         this.ordersById = ordersById;
     }
 
     @OneToMany(mappedBy = "tourByTourId")
-    public Collection<ImagesEntity> getImagesById() {
+    public Collection<Images> getImagesById() {
         return imagesById;
     }
 
-    public void setImagesById(Collection<ImagesEntity> imagesById) {
+    public void setImagesById(Collection<Images> imagesById) {
         this.imagesById = imagesById;
     }
 
     @ManyToOne
     @JoinColumn(name = "country_id", referencedColumnName = "id", nullable = false)
-    public CountryEntity getCountryByCountryId() {
+    public Country getCountryByCountryId() {
         return countryByCountryId;
     }
 
-    public void setCountryByCountryId(CountryEntity countryByCountryId) {
+    public void setCountryByCountryId(Country countryByCountryId) {
         this.countryByCountryId = countryByCountryId;
     }
 }

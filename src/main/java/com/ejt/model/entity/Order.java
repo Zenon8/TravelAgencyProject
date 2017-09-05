@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "order", schema = "travel_agency")
-public class OrderEntity {
+public class Order {
     private int id;
     private int customerId;
     private int tourId;
@@ -13,8 +13,8 @@ public class OrderEntity {
     private int cost;
     private int status;
     private Timestamp date;
-    private CustomerEntity customerByCustomerId;
-    private TourEntity tourByTourId;
+    private Customer customerByCustomerId;
+    private Tour tourByTourId;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -91,7 +91,7 @@ public class OrderEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        OrderEntity that = (OrderEntity) o;
+        Order that = (Order) o;
 
         if (id != that.id) return false;
         if (customerId != that.customerId) return false;
@@ -118,21 +118,21 @@ public class OrderEntity {
 
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false)
-    public CustomerEntity getCustomerByCustomerId() {
+    public Customer getCustomerByCustomerId() {
         return customerByCustomerId;
     }
 
-    public void setCustomerByCustomerId(CustomerEntity customerByCustomerId) {
+    public void setCustomerByCustomerId(Customer customerByCustomerId) {
         this.customerByCustomerId = customerByCustomerId;
     }
 
     @ManyToOne
     @JoinColumn(name = "tour_id", referencedColumnName = "id", nullable = false)
-    public TourEntity getTourByTourId() {
+    public Tour getTourByTourId() {
         return tourByTourId;
     }
 
-    public void setTourByTourId(TourEntity tourByTourId) {
+    public void setTourByTourId(Tour tourByTourId) {
         this.tourByTourId = tourByTourId;
     }
 }
